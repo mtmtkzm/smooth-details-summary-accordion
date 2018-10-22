@@ -64,14 +64,3 @@ class Disclosure {
 
   }
 }
-
-const disclosure = new Disclosure({
-  detailsSelector: 'details',
-  summarySelector: 'summary',
-  flagAttribute: 'open',
-});
-
-// メソッド呼び出してみる
-document.querySelector('.js-button-toggle').addEventListener('click', () => {
-  disclosure.toggle(document.querySelector('.js-close-el'));
-});

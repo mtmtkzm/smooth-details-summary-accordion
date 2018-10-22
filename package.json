@@ -1,0 +1,30 @@
+{
+  "name": "smooth-details-summary-accordion",
+  "version": "1.0.0",
+  "description": "Accordion vanilla js library to be smooth details/summary",
+  "main": "disclosure.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtmtkzm/smooth-details-summary-accordion.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtmtkzm/smooth-details-summary-accordion/issues"
+  },
+  "homepage": "https://github.com/mtmtkzm/smooth-details-summary-accordion#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
