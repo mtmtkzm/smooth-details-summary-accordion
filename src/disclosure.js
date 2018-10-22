@@ -9,7 +9,7 @@ class Disclosure {
     // CSSによって Transition させるために、デフォルトの高さを持たせる
     $details.style.height =
       $details.hasAttribute(this.flagAttribute)
-        ?　　`${$details.clientHeight}px`
+        ? `${$details.clientHeight}px`
         : `${$details.querySelector(this.summarySelector).clientHeight}px`;
 
     $details.querySelector(this.summarySelector).addEventListener('click', e => {
@@ -29,13 +29,13 @@ class Disclosure {
 
   open ($details) {
     $details.setAttribute(this.flagAttribute, '');
-    const detailsStyles = window.getComputedStyle($details);
+    const detailsStyles = getComputedStyle($details);
 
     $details.style.height = `${
-    $details.scrollHeight
-    - Number(detailsStyles.paddingTop.replace('px', ''))
-    - Number(detailsStyles.paddingBottom.replace('px', ''))
-      }px`;
+      $details.scrollHeight
+        - parseInt(detailsStyles.paddingTop, 10)
+        - parseInt(detailsStyles.paddingBottom, 10)
+    }px`;
   }
 
   close ($details) {
@@ -49,13 +49,23 @@ class Disclosure {
     this.summarySelector = 'summary';
     this.flagAttribute = 'open';
 
-    // デフォルト設定を ユーザカスタムで上書き
-    Object.assign(this, options);
+    // デフォルト設定を ユーザカスタムで上書きするが、指定されたパラメータしか受け付けないようにする
+    const {
+      detailsSelector,
+      summarySelector,
+      flagAttribute,
+    } = options;
+
+    Object.assign(this, {
+      detailsSelector,
+      summarySelector,
+      flagAttribute,
+    })
+
   }
 }
 
 const disclosure = new Disclosure({
-  // デフォルトのやつ
   detailsSelector: 'details',
   summarySelector: 'summary',
   flagAttribute: 'open',
@@ -65,7 +75,3 @@ const disclosure = new Disclosure({
 document.querySelector('.js-button-toggle').addEventListener('click', () => {
   disclosure.toggle(document.querySelector('.js-close-el'));
 });
-
-// document.querySelector('.js-button-init').addEventListener('click', () => {
-//   disclosure.init(document.querySelector('.js-init-el'));
-// });
