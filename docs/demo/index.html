@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DEMO - disclosure.js</title>
+
+  <style>
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    details, .disclosure-details {
+      height: auto;
+      overflow: hidden;
+      transition: height 300ms ease-in-out;
+      background-color: lightgray;
+      margin-bottom: 16px;
+      padding: 10px;
+    }
+
+    summary, .disclosure-summary {
+      display: block;
+      background-color: darkgray;
+      padding: 4px 12px;
+      cursor: pointer;
+      margin-bottom: 8px;
+      transition: background-color .3s ease, color .3s ease;
+    }
+    [open] summary,
+    [open] .disclosure-summary {
+      background-color: gray;
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <details>
+    <summary>Lorem Ipsum?</summary>
+    details/summary マークアップ（最シンプル）
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </details>
+
+  <details open>
+    <summary>summary</summary>
+    デフォルトはオープンしているやつ
+    <p>pテキスト</p>
+  </details>
+
+  <button class="js-button-toggle">toggle button</button>
+  <details class="js-close-el">
+    <summary>外から toggle される</summary>
+    <p>外から toggle() 呼ばれる</p>
+  </details>
+
+  <button class="js-button-init">init button</button>
+  <div class="disclosure-details js-init-el">
+    <div class="disclosure-summary">外から init される</div>
+    <p>インスタンス作成時点では 対象外のやつ<br>
+      summary のセレクタの渡せてないので動かない　どうしよ</p>
+  </div>
+
+</div>
+
+<script src="../../dist/disclosure.min.js"></script>
+
+</body>
+</html>
